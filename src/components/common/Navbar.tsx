@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button, useColorMode } from '@chakra-ui/react';
 import { SunIcon, MoonIcon, SearchIcon } from '@chakra-ui/icons'
 
-
 //assets
 import '../assets/css/navbar.css';
 
-const NavBar: React.FC = () => {
+interface NavBarProps {
+  setDrawer: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-  const { colorMode, toggleColorMode } = useColorMode()
+const NavBar: React.FC<NavBarProps> = ({setDrawer}) => {
+
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <>
-      <div className="container">
         <nav>
             <ul>
               <li>
@@ -32,7 +34,7 @@ const NavBar: React.FC = () => {
                 </NavLink>
               </li>
               <li>
-                <Button>
+                <Button onClick={() => setDrawer(prevDrawer =>  !prevDrawer)}>
                   <SearchIcon/>
                 </Button>
               </li>
@@ -43,7 +45,6 @@ const NavBar: React.FC = () => {
               </li>
             </ul>
           </nav>
-      </div>
     </>
   );
 };

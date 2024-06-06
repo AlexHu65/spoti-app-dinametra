@@ -4,25 +4,32 @@ import { ChakraProvider } from '@chakra-ui/react';
 //components
 import Home from './components/Home';
 import About from './components/About';
-import NavBar from './components/common/Navbar';
 import Stats from './components/Stats';
+import NavBar from './components/common/NavBar';
+import SideBar from './components/common/SideBar';
 
 import './App.css'
+import { useState } from 'react';
+
 
 function App() {
 
+  const [drawer, setDrawer] = useState(false);
+
   return (
     <ChakraProvider>
-        <NavBar></NavBar>
+        <NavBar setDrawer={setDrawer}/>
+        <SideBar drawer={drawer} setDrawer={setDrawer}/>
         <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/stats" element={<Stats />} />
-        </Routes>
-      </div>
+            <div className="mt-5">
+              <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/stats" element={<Stats />} />
+              </Routes>
+            </div>
+        </div>
     </ChakraProvider>
-
   )
 }
 

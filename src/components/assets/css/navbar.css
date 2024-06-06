@@ -5,6 +5,13 @@ nav{
     align-content: center;
     justify-content: end;
     width: 100%;
+    height: auto;
+    min-height: 90px;
+    background: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    position: fixed;
 }
 
 nav ul {
@@ -24,6 +31,7 @@ nav ul li {
 
 nav ul li a{
     font-weight: bold;
+    transition: .5 ease all;
 }
 
 nav ul li .active {
