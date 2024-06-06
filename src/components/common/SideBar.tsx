@@ -3,13 +3,11 @@ import React from 'react';
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
   Input,
-  Button,
   useDisclosure,
 } from '@chakra-ui/react'
 
@@ -36,18 +34,10 @@ const SideBar: React.FC<SideBarProps> = ({drawer, setDrawer}) => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton onClick={() =>setDrawer(prevDrawer => !prevDrawer)}/>
-          <DrawerHeader>Create your account</DrawerHeader>
-
+          <DrawerHeader>Busca tu artista</DrawerHeader>
           <DrawerBody>
-            <Input placeholder='Type here...' />
+            <Input placeholder='Nombre, album...' />
           </DrawerBody>
-
-          <DrawerFooter>
-            <Button variant='outline' mr={3} onClick={() =>setDrawer(prevDrawer => !prevDrawer)}>
-              Cancel
-            </Button>
-            <Button colorScheme='blue'>Save</Button>
-          </DrawerFooter>
         </DrawerContent>
       </Drawer>  
     </>

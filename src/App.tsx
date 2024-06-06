@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 
@@ -9,8 +10,6 @@ import NavBar from './components/common/NavBar';
 import SideBar from './components/common/SideBar';
 
 import './App.css'
-import { useState } from 'react';
-
 
 function App() {
 
@@ -21,7 +20,7 @@ function App() {
         <NavBar setDrawer={setDrawer}/>
         <SideBar drawer={drawer} setDrawer={setDrawer}/>
         <div className="App">
-            <div className="mt-5">
+            <div className="mt-5 mt-fixed">
               <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />
